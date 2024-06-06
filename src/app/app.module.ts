@@ -10,6 +10,9 @@ import { HeaderComponent } from './header/header.component';
 import { MdbCheckboxModule } from 'mdb-angular-ui-kit/checkbox';
 import {MdbCollapseModule} from 'mdb-angular-ui-kit/collapse';
 import { FooterComponent } from './footer/footer.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+import { PostviewComponent } from './postview/postview.component';
 
 @NgModule({
   declarations: [
@@ -17,14 +20,17 @@ import { FooterComponent } from './footer/footer.component';
     PostHomeComponent,
     PostPreViewComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    PostviewComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     MdbCheckboxModule,
-    MdbCollapseModule
+    MdbCollapseModule,
+    HttpClientModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
