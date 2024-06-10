@@ -13,6 +13,8 @@ import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { PostviewComponent } from './postview/postview.component';
+import { PostEditorComponent } from './post-editor/post-editor.component';
+import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { PostviewComponent } from './postview/postview.component';
     PostPreViewComponent,
     HeaderComponent,
     FooterComponent,
-    PostviewComponent
+    PostviewComponent,
+    PostEditorComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,8 @@ import { PostviewComponent } from './postview/postview.component';
     MdbCheckboxModule,
     MdbCollapseModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    MdbFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

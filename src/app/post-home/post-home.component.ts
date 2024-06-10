@@ -1,5 +1,6 @@
 import { DataService } from './../data.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild,ViewContainerRef } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-post-home',
@@ -9,14 +10,15 @@ import { Component, OnInit } from '@angular/core';
 export class PostHomeComponent implements OnInit {
   data:any;
 
-  constructor(private dataService:DataService){}
+  constructor(private dataService:DataService,private router: Router){}
 
   ngOnInit(): void {
     this.dataService.getdata().subscribe(Response=>{
       this.data = Response;
       console.log(this.data);
     })
-
   }
+  @ViewChild('container',{read:ViewContainerRef}) container!:ViewContainerRef;
+
 
 }

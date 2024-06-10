@@ -12,4 +12,7 @@ export class DataService {
   getdata():Observable<any>{
     return this.http.get('https://localhost:7148/api/forumpost')
   }
+  getdataById(id){
+    return this.http.get('https://localhost:7148/api/ForumPost/{id}?postid='+id)
+  }
 }
