@@ -1,8 +1,5 @@
 <p>postview works!</p>
-<p>{{data | json}}</p>
-<li *ngFor="let d of data">
-    <h3>{{d.title}}</h3>
-    <p class="card-text">{{d.postTime}}</p>
-    <p class="card-text">{{d.postContent}}</p>
-    <p class="card-text">{{d.participants}}</p>
-</li>
+<h3>{{data.title}}</h3>
+<p class="card-text">Title:{{data.postTitle}}</p>
+<p class="card-text">Content:{{data.postContent}}</p>
+<p class="card-text">Member:{{data.participants}}</p>

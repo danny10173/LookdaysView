@@ -68,7 +68,7 @@
               <p class="card-text">{{d.postContent}}</p>
               <p class="card-text">{{d.participants}}</p>
               <p class="card-text">{{d.postId}}</p>
-              <a href="#!" class="btn btn-primary" data-mdb-ripple-init [routerLink]="'postview/'">Button</a>
+              <a href="#!" class="btn btn-primary" data-mdb-ripple-init [routerLink]="['postview/',d.postId]">Button</a>
             </div>
           </div>
         </li>

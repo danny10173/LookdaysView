@@ -18,7 +18,7 @@ export class PostHomeComponent implements OnInit {
       console.log(this.data);
     })
   }
-  @ViewChild('container',{read:ViewContainerRef}) container!:ViewContainerRef;
+  // @ViewChild('container',{read:ViewContainerRef}) container!:ViewContainerRef;
 
 
 }
