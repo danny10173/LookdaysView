@@ -15,6 +15,7 @@ import { CommonModule } from '@angular/common';
 import { PostviewComponent } from './postview/postview.component';
 import { PostEditorComponent } from './post-editor/post-editor.component';
 import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
     HeaderComponent,
     FooterComponent,
     PostviewComponent,
-    PostEditorComponent
+    PostEditorComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
