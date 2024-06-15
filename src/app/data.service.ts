@@ -15,4 +15,7 @@ export class DataService {
   getdataById(id){
     return this.http.get('https://localhost:7148/api/ForumPost/{id}?postid='+id)
   }
+  getCurrentUser(){
+    return this.http.get('https://localhost:7148/api/LoginJWT/get-current-user')
+  }
 }

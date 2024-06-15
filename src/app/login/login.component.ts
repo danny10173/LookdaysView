@@ -18,8 +18,6 @@ export class LoginComponent {
   };
 
   onLogin(){
-    debugger
-
     this.accService.onLogin(this.loginObj).subscribe((res:any)=>{
       console.log('res',res)
       localStorage.setItem('token',res.token)

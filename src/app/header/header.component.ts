@@ -1,7 +1,11 @@
+import { CurrentUserDTO } from './../../type/index';
+import { DataService } from './../data.service';
+import { AuthUserService } from './../service/auth-user.service';
 import { HttpClient } from '@angular/common/http';
 import { AppRoutingModule } from './../app-routing.module';
-import { Component } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { ActivatedRoute, RouterModule, Routes } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -9,20 +13,25 @@ import { RouterModule, Routes } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  constructor(private http:HttpClient){}
-  path:'posthome';
-  login(){
-    let body = {
-      "email": "test123@test.com",
-      "username": "test123",
-      "password": "test"
-    };
 
-    let url = "https://localhost:7148/api/LoginJWT/Log-in";
+  constructor(private AuthUserService:AuthUserService,
+              private DataService:DataService,
+              private route:ActivatedRoute
+              ){}
+  loginBtn = 'Log-in';
+  user:any;
+  private routeSub:Subscription;
 
-    this.http.post<any>(url,body).subscribe(res=>{
-      console.log(res);
-    });
+  checkUser(): void {
+    if(this.AuthUserService.checklogin()!=null){
+      this.DataService.getCurrentUser().subscribe(Response=>{
+          this.user = Response;
+          console.log(this.user);
+      })
+    }
+    else{
+      console.log('token not found');
+    }
   }
 
 }
