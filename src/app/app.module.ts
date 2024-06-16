@@ -16,6 +16,8 @@ import { PostviewComponent } from './postview/postview.component';
 import { PostEditorComponent } from './post-editor/post-editor.component';
 import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
 import { LoginComponent } from './login/login.component';
+import { AuthInterceptor } from './auth-interceptor.interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,11 @@ import { LoginComponent } from './login/login.component';
     CommonModule,
     MdbFormsModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
