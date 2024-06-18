@@ -1,6 +1,8 @@
-import { Router } from '@angular/router';
+import { Data, Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { AccountService } from '../service/account.service';
+import { AuthUserService } from '../service/auth-user.service';
+import { DataService } from './../data.service';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +11,9 @@ import { AccountService } from '../service/account.service';
 })
 export class LoginComponent {
 
-  constructor(private accService:AccountService, private route:Router){}
+  constructor(private AuthUserService:AuthUserService,
+              private accService:AccountService,
+              private DataService:DataService){}
 
   loginObj = {
     "email": "test123@test.com",
@@ -22,6 +26,19 @@ export class LoginComponent {
       console.log('res',res)
       localStorage.setItem('token',res.token)
     })
+  }
+  user:any;
+
+  checkUser(): void {
+    if(this.AuthUserService.checklogin()!=null){
+      this.DataService.getCurrentUser().subscribe(Response=>{
+          this.user = Response;
+          console.log(this.user);
+      })
+    }
+    else{
+      console.log('token not found');
+    }
   }
 
 }

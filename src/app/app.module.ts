@@ -18,6 +18,10 @@ import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
 import { LoginComponent } from './login/login.component';
 import { AuthInterceptor } from './auth-interceptor.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { EditorModule } from 'primeng/editor';
+import { ButtonModule } from 'primeng/button';
 
 @NgModule({
   declarations: [
@@ -38,7 +42,11 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     MdbCollapseModule,
     HttpClientModule,
     CommonModule,
-    MdbFormsModule
+    MdbFormsModule,
+    BrowserAnimationsModule,
+    MatGridListModule,
+    EditorModule,
+    ButtonModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

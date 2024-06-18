@@ -12,6 +12,7 @@ const routes: Routes = [
   {path:'postview',component:PostviewComponent},
   {path:'postpreview',component:PostPreViewComponent},
   {path:'postedit',component:PostEditorComponent},
+  {path:'postedit/:id',component:PostEditorComponent},
   {path:'postview/:id',component:PostviewComponent},
   {path:'loginpage',component:LoginComponent}
 ];

@@ -17,42 +17,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col md-4">
-      <div class="card">
-        <div class="bg-image hover-overlay" data-mdb-ripple-init data-mdb-ripple-color="light">
-          <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/111.webp" class="img-fluid" />
-          <a href="#!">
-            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-          </a>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
-          <a href="#!" class="btn btn-primary" data-mdb-ripple-init>Button</a>
-        </div>
-      </div>
-    </div>
-    <div class="col md-4">
-      <div class="card">
-        <div class="bg-image hover-overlay" data-mdb-ripple-init data-mdb-ripple-color="light">
-          <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/112.webp" class="img-fluid" />
-          <a href="#!">
-            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-          </a>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
-          <a href="#!" class="btn btn-primary" data-mdb-ripple-init>Button</a>
-        </div>
-      </div>
-    </div>
-    <div class="col md-4">
-      <app-post-pre-view></app-post-pre-view>
-    </div>
-    <div *ngIf="data">
+    <!-- <div *ngIf="data">
       <ul>
         <li *ngFor="let d of data" style="list-style-type: none">
           <div class="card">
@@ -73,6 +38,45 @@
           </div>
         </li>
       </ul>
-    </div>
+    </div> -->
+    <mat-grid-list cols="3" rowHeight="100px">
+      <mat-grid-tile style="background: red" colspan="2">
+        Tile 1(橫幅廣告)
+      </mat-grid-tile>
+      <mat-grid-tile style="background: green" rowspan="22">
+        Tile 2(右邊清單資訊)
+      </mat-grid-tile>
+
+      <mat-grid-tile rowspan="2" style="background: blue">
+        置頂文章1
+      </mat-grid-tile>
+      <mat-grid-tile rowspan="2"  style="background: blue">
+        置頂文章2
+      </mat-grid-tile>
+
+      <mat-grid-tile *ngFor="let post of data" rowspan="6">
+        <!-- {{ post.title }} -->
+        <div class="card">
+          <div class="bg-image hover-overlay" data-mdb-ripple-init data-mdb-ripple-color="light">
+            <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/112.webp" class="img-fluid" />
+            <a href="#!">
+              <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+            </a>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">{{post.postTitle}}</h5>
+            <p class="card-text">{{post.postTime}}</p>
+            <p class="card-text">{{post.postContent}}</p>
+            <p class="card-text">{{post.participants}}</p>
+            <p class="card-text">{{post.postId}}</p>
+            <a href="#!" class="btn btn-primary" data-mdb-ripple-init [routerLink]="['postview/',post.postId]">Button</a>
+          </div>
+        </div>
+      </mat-grid-tile>
+
+      <mat-grid-tile style="background: yellow" colspan="2">
+        Tile 4(下方橫幅廣告)
+      </mat-grid-tile>
+    </mat-grid-list>
   </div>
 </div>
