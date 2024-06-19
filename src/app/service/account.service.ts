@@ -17,4 +17,10 @@ export class AccountService {
 
 
   }
+
+  LoginWithHash(obj:any):Observable<any>{
+    let url = "https://localhost:7148/api/LoginJWT/Log-in-hash";
+
+    return this.http.post(url,obj)
+  }
 }

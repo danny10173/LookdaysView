@@ -16,10 +16,15 @@ export class LoginComponent {
               private DataService:DataService){}
 
   loginObj = {
-    "email": "test123@test.com",
+    // "email": "test123@test.com",
     "username": "test123",
     "password": "test"
   };
+
+  HashLoginObj = {
+    "username": "test1234",
+    "password": "Test1234"
+  }
 
   onLogin(){
     this.accService.onLogin(this.loginObj).subscribe((res:any)=>{
@@ -27,6 +32,13 @@ export class LoginComponent {
       localStorage.setItem('token',res.token)
     })
   }
+  LoginWithHash(){
+    this.accService.LoginWithHash(this.HashLoginObj).subscribe((res:any)=>{
+      console.log('res',res)
+      localStorage.setItem('token',res.token)
+    })
+  }
+
   user:any;
 
   checkUser(): void {
