@@ -33,5 +33,12 @@ export class HeaderComponent {
       console.log('token not found');
     }
   }
+  Keyword:string
+  search():void{
+    this.DataService.searchByKeywords(this.Keyword).subscribe(Response=>{
+      this.user = Response;
+      console.log(this.user);
+    })
+  }
 
 }

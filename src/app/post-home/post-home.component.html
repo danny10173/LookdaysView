@@ -16,6 +16,18 @@
       <button type="button" class="btn btn-outline-primary"><i class="fas fa-search-plus me-2"></i>See more</button>
     </div>
   </div>
+  <form (submit)="onSubmit()" class="d-flex input-group w-auto">
+    <input
+      type="search"
+      class="form-control"
+      placeholder="Type query"
+      aria-label="Search"
+      [(ngModel)]="Keyword"
+    />
+    <button class="btn btn-outline-primary" type="submit" (click)="search()">
+      Search
+    </button>
+  </form>
   <div class="row">
     <!-- <div *ngIf="data">
       <ul>
@@ -40,19 +52,19 @@
       </ul>
     </div> -->
     <mat-grid-list cols="3" rowHeight="100px">
-      <mat-grid-tile style="background: red" colspan="2">
+      <!-- <mat-grid-tile style="background: red" colspan="2">
         Tile 1(橫幅廣告)
-      </mat-grid-tile>
-      <mat-grid-tile style="background: green" rowspan="22">
+      </mat-grid-tile> -->
+      <!-- <mat-grid-tile style="background: green" rowspan="22">
         Tile 2(右邊清單資訊)
-      </mat-grid-tile>
+      </mat-grid-tile> -->
 
-      <mat-grid-tile rowspan="2" style="background: blue">
+      <!-- <mat-grid-tile rowspan="2" style="background: blue">
         置頂文章1
       </mat-grid-tile>
       <mat-grid-tile rowspan="2"  style="background: blue">
         置頂文章2
-      </mat-grid-tile>
+      </mat-grid-tile> -->
 
       <mat-grid-tile *ngFor="let post of data" rowspan="6">
         <!-- {{ post.title }} -->
@@ -66,7 +78,7 @@
           <div class="card-body">
             <h5 class="card-title">{{post.postTitle}}</h5>
             <p class="card-text">{{post.postTime}}</p>
-            <p class="card-text">{{post.postContent}}</p>
+            <!-- <p class="card-text">{{post.postContent}}</p> -->
             <p class="card-text">{{post.participants}}</p>
             <p class="card-text">{{post.postId}}</p>
             <a href="#!" class="btn btn-primary" data-mdb-ripple-init [routerLink]="['postview/',post.postId]">Button</a>

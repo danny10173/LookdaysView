@@ -18,4 +18,7 @@ export class DataService {
   getCurrentUser(){
     return this.http.get('https://localhost:7148/api/LoginJWT/get-current-user')
   }
+  searchByKeywords(kw){
+    return this.http.get('https://localhost:7148/api/ForumPostAPI/SearchByKeywords?keywords='+kw)
+  }
 }

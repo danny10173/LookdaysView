@@ -19,6 +19,16 @@ export class PostHomeComponent implements OnInit {
     })
   }
   // @ViewChild('container',{read:ViewContainerRef}) container!:ViewContainerRef;
+  Keyword:string;
+  search():void{
+    this.dataService.searchByKeywords(this.Keyword).subscribe(Response=>{
+      this.data = Response;
+      console.log(this.data);
+    })
+  }
 
+  onSubmit(){
+    return this.Keyword;
+  }
 
 }
